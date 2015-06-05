@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ru" ng-app="test1">
+	<head>
+		 <script src="node_modules/angular/angular.js"></script>
+		 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script><!-- Fix Error: Failed to instantiate module restangular due to: '_' is undefined -->
+		 <script src="node_modules/restangular/dist/restangular.js"></script>
+
+		 <script src="js/test1contr.js"></script>
+		 
+		 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  	</head>
+<body>	
+
+  <div ng-controller="test1contr">
+  <div class="row">
+  <div class="col-sm-4">
+     <input type="text" class="form-control" placeholder="Поиск по login" ng-model="filterText.login"/>
+  </div>
+ </div>
+	<div class="col-xs-6 col-md-3" ng-repeat="user in allUsers | filter:filterText">
+		<div class="thumbnail">
+		  <img src="{{user.avatar_url}}" alt="{{user.login }}">
+		  <div class="caption">
+			<h3>{{user.id}} {{user.login}}</h3>
+		  </div>
+		</div>
+	</div>
+</div>  
+
+</body>
+</html>

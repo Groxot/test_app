@@ -1,0 +1,19 @@
+{
+  "name": "app_test",
+  "author": "Gopard",
+  "description": "app_test",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "gulp default"
+  },
+  "dependencies": {
+	"angular":"v1.3",
+	"bootstrap":"latest",
+	"restangular":"v1.3",
+	"angular-messages":"v1.3"
+  },
+    "devDependencies": {
+    "gulp":"latest",
+    "gulp-webserver":"latest"
+  }
+}
