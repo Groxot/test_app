@@ -7,13 +7,11 @@
     "start": "gulp default"
   },
   "dependencies": {
-	"angular":"v1.3",
-	"bootstrap":"latest",
-	"restangular":"v1.3",
-	"angular-messages":"v1.3"
+
   },
     "devDependencies": {
     "gulp":"latest",
-    "gulp-webserver":"latest"
+    "gulp-webserver":"latest",
+	"bower":"latest"
   }
 }

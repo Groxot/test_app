@@ -1,49 +1,36 @@
-<!DOCTYPE html>
-<html lang="ru" ng-app="test2">
-	<head>
-		 <script src="node_modules/angular/angular.js"></script>
-		 <script src="node_modules/angular-messages/angular-messages.js"></script>
 
-		 <script src="js/test2contr.js"></script>
-		 
-		 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-		 
-		 <link rel="stylesheet" href="css/test2.css">
-  	</head>
-<body>	
 
-<div ng-controller="test2contr" class="panel panel-primary col-sm-9 col-sm-offset-2">
-<form name="form" class="css-form" novalidate>
-<div class="form-group" ng-class="{'has-success':(form.mail.$valid),'has-error':(form.mail.$invalid)}" >
+<div class="panel panel-primary col-sm-9 col-sm-offset-2">
+<H1 ng-show="formSended">"h1 Thank you, your data has been sent!"</H1>
+<form method="POST" name="form" class="css-form" ng-show="!formSended" novalidate>
+<div class="form-group" ng-class="{'has-success':(form.mail.$valid && form.mail.$touched),'has-error':(form.mail.$invalid && form.mail.$touched)}" >
   <label class="control-label" for="mail">mail</label>
-  <input type="email" class="form-control" ng-model="user.email" name="mail" ng-show="!formSended" required >
-   <div ng-messages="form.mail.$error" style="color:maroon" role="alert">
+  <input type="email" class="form-control" ng-model="user.email" name="mail"  required >
+   <div ng-show="form.mail.$touched" ng-messages="form.mail.$error" style="color:maroon" role="alert">
     <div ng-message="required">You did not enter a field</div>
 	<div ng-message="email">Incorrect email</div>
   </div>
-  <label ng-show="formSended">"h1 Thank you, your data has been sent!"</label>
+
 </div>
-<div class="form-group" ng-class="{'has-success':(form.password.$valid),'has-error':(form.password.$invalid)}">
+<div class="form-group" ng-class="{'has-success':(form.password.$valid && form.password.$touched),'has-error':(form.password.$invalid && form.password.$touched)}">
   <label class="control-label" for="password">password</label>
-  <input type="password" class="form-control" ng-minlength="8" ng-model="user.password" name="password" ng-show="!formSended" required >
-  <div ng-messages="form.password.$error" style="color:maroon" role="alert">
+  <input type="password" class="form-control" ng-minlength="passwordLen" ng-model="user.password" name="password" required >
+  <div ng-show="form.password.$touched" ng-messages="form.password.$error" style="color:maroon" role="alert">
     <div ng-message="required">You did not enter a field</div>
-    <div ng-message="minlength">Your field is too short</div>
+    <div ng-message="minlength">Your field is too short. Needed {{passwordLen }}</div>
   </div>
-  <label ng-show="formSended">"h1 Thank you, your data has been sent!"</label>
+
 </div>
-<div class="form-group" ng-class="{'has-success':(form.repeat_password.$valid),'has-error':(form.repeat_password.$invalid)}">
+<div class="form-group" ng-class="{'has-success':(form.repeat_password.$valid && form.repeat_password.$touched),'has-error':(form.repeat_password.$invalid && form.repeat_password.$touched)}">
   <label class="control-label" for="repeat_password">repeat password</label>
-  <input type="password" class="form-control" ng-model="user.repeat_password" name="repeat_password" compare-to="user.password" ng-show="!formSended" required >
-  <div ng-messages="form.repeat_password.$error" style="color:maroon" role="alert">
+  <input type="password" class="form-control" ng-model="user.repeat_password" name="repeat_password" compare-to="user.password" required >
+  <div ng-show="form.repeat_password.$touched" ng-messages="form.repeat_password.$error" style="color:maroon" role="alert">
     <div ng-message="required">You did not enter a field</div>
     <div ng-message="compareTo">Must match the previous entry</div>
   </div>
-  <label ng-show="formSended">"h1 Thank you, your data has been sent!"</label>
+
 </div>
-<button type="button" class="btn btn-lg btn-primary" ng-click="formSended=true;" ng-disabled="form.$invalid">Send</button>
+<input type="submit" class="btn btn-lg btn-primary" ng-click="formSended=true;" ng-disabled="form.$invalid"></input>
 </form>
 </div>  
 
-</body>
-</html>

@@ -1,11 +1,19 @@
-﻿<!doctype html>
-<html lang="ru">
-<head>
-			<header("Cache-Control: max-age=1")>
-
-</head>
+﻿<!DOCTYPE html>
+<html lang="ru" ng-app="test1">
+	<head>
+		 <script src="bower_components/angular/angular.js"></script>
+		 <script src="bower_components/angular-messages/angular-messages.js"></script>
+		 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script><!-- Fix Error: Failed to instantiate module restangular due to: '_' is undefined -->
+		 <script src="bower_components/restangular/dist/restangular.js"></script>
+		 <script src="js/test1contr.js"></script> 
+		 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  	</head>
+<body>	
 <body>
-	<a href="test1.html">тест 1</a>
-	<a href="test2.html">тест 2</a>
+ <div ui-view></div>
+
+	<a ui-sref="test1">тест 1</a>
+	<a ui-sref="test2">тест 2</a>
 </body>
 </html>

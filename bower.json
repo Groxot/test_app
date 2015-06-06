@@ -1,0 +1,17 @@
+{
+  "name": "app_test",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "v1.3",
+    "bootstrap": "latest",
+    "restangular": "v1.3",
+    "angular-messages": "v1.3",
+	"angular-ui-router": "latest"
+  },
+  "description": "test_app",
+  "moduleType": [
+    "yui"
+  ],
+  "license": "MIT",
+  "private": true
+}
